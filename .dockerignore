@@ -1,0 +1,25 @@
+# Ignore node_modules everywhere — they get reinstalled inside Docker
+**/node_modules
+**/npm-debug.log
+
+# Ignore frontend build artifacts (rebuilt inside Docker)
+frontend/dist
+frontend/.vite
+
+# Ignore backend uploads (runtime folder, not needed in image)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Ignore secrets — never bake into image
+backend/.env
+backend/gcp-service-account.json
+
+# Ignore local DB — Cloud Run is stateless, DB is seeded fresh
+backend/db.json
+
+# Ignore git and editor files
+.git
+.gitignore
+.vscode
+.idea
+*.md

@@ -33,7 +33,10 @@ import {
   CartesianGrid
 } from 'recharts';
 
-const API_BASE = 'http://localhost:5000/api';
+// In production (Cloud Run), frontend and backend share the same origin.
+// In local dev, the backend runs separately on port 5000.
+const API_BASE = import.meta.env.PROD ? '/api' : 'http://localhost:5000/api';
+
 
 export default function App() {
   // --- STATE ---

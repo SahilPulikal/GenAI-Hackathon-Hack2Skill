@@ -8,10 +8,16 @@ const { GoogleGenAI } = require('@google/generative-ai');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve built React frontend from ./public (populated by Docker multi-stage build)
+const publicDir = path.join(__dirname, 'public');
+if (fs.existsSync(publicDir)) {
+  app.use(express.static(publicDir));
+}
 
 // Set up file uploading for image processing
 const uploadDir = path.join(__dirname, 'uploads');
@@ -654,7 +660,15 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+// Catch-all: serve React SPA for any non-API route (must be AFTER all /api routes)
+if (fs.existsSync(publicDir)) {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(publicDir, 'index.html'));
+  });
+}
+
 // Start Server
 app.listen(PORT, () => {
   console.log(`📡 CareCompass API Server running on http://localhost:${PORT}`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
 });
