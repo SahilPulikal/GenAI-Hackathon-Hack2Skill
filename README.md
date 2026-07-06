@@ -21,6 +21,10 @@
 
 **Working Prototype Google Cloud Run Deployed Link** : https://carecompass-ai-899229286203.asia-south1.run.app/
 
+**Demo Video** : https://youtu.be/gfhGzbx18_w
+
+**Demo PPT** : https://github.com/SahilPulikal/GenAI-Hackathon-Hack2Skill/blob/83b24368a43725bf692f055aae03e9c2c0c953da/Sahil%20Pulikal%20_%20Gen%20AI%20Academy%20APAC%20Edition%20Hack2Skill.pdf
+
 ---
 
 ## ✨ Key Features
