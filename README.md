@@ -19,6 +19,8 @@
 
 **Demo Patient:** Robert Miller, 78 — managed by caregiver Sarah Miller (daughter).
 
+**Working Prototype Google Cloud Run Deployed Link** : https://carecompass-ai-899229286203.asia-south1.run.app/
+
 ---
 
 ## ✨ Key Features
@@ -172,6 +174,11 @@ http://localhost:5173
 ```
 
 🎉 **CareCompass AI is now running!**
+
+**For deploying in Google Cloud Run:**
+```
+gcloud run deploy carecompass-ai --source . --region asia-south1 --allow-unauthenticated --set-env-vars GEMINI_API_KEY=[API_KEY]
+```
 
 ---
 
